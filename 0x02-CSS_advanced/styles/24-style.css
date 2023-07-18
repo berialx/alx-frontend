@@ -582,6 +582,10 @@ ul.row {
   fill: var(--text-color);
 }
 
+.card-category {
+  color: var(--color-primary);
+}
+
 .card-services .card-title {
   margin: 0;
 }
@@ -597,3 +601,5 @@ ul.row {
   background-color: var(--color-primary);
   text-decoration: none;
 }
+
+
