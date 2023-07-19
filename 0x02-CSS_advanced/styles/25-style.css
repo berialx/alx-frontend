@@ -1,4 +1,4 @@
-/* Add background and hover state to services */
+/* Add border to the button */
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -467,7 +467,7 @@ a:active {
   text-decoration: var(--button-text-decoration);
 }
 
-.button-hover {
+.button:hover {
   color: var(--button-hover-color);
   text-decoration: var(--button-hover-text-decoration);
   background-color: var(--button-hover-background);
