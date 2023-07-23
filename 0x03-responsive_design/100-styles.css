@@ -500,6 +500,11 @@
     min-height: 35vh;
   }
 
+  .article-page .section-hero {
+      margin-top: -8.5rem;
+      padding-top: 5rem;
+  }
+
   @media screen and (max-width: 767px) {
       .section-hero {
           margin: -0.1rem 0;
@@ -754,6 +759,21 @@
     color: var(--color-grey);
     text-align: center;
   }
+
+  .post {
+    margin: 0 2rem;
+  }
+
+  @media screen and (max-width: 767px) {
+      .post {
+          flex-direction: column;
+          margin: 2rem;
+      }
+
+      .post-content {
+          padding-left: 0;
+      }
+  }
   
   /* Post Meta
       ============================= */
@@ -815,6 +835,14 @@
   
   .post-comments .section-title {
     font-variant: small-caps;
+  }
+
+  @media screen and (max-width: 767px) {
+      .post-comments {
+          width: calc(100% - 4rem);
+          margin: 2rem;
+          padding: 0;
+      }
   }
   
   /* Basic form
@@ -921,4 +949,143 @@
   
   input:not(:placeholder-shown) ~ .form-field-icon::after {
     height: 100%;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 1.3em;
+  }
+  
+  input:required:invalid:not(:focus):not(:placeholder-shown) ~ .form-field-icon::after {
+    content: '✘';
+    color: var(--error-color);
+  }
+  
+  input:required:valid ~ .form-field-icon::after {
+    content: '✔';
+    color: var(--valid-color);
+  }
+  
+  input:required:valid ~ .form-help {
+    max-height: 0;
+  }
+  
+  input:required:invalid:not(:focus):not(:placeholder-shown),
+  textarea:invalid:not(:focus):not(:placeholder-shown) {
+    border: 0.1rem solid var(--error-color);
+  }
+  
+  input:required:valid:not(:placeholder-shown),
+  textarea:valid:not(:placeholder-shown) {
+    border: 0.1rem solid var(--valid-color);
+  }
+  
+  /*** SEARCH FORM ***/
+  
+  .form-search {
+    display: block;
+    padding: .5rem 0;
+    position: relative;
+  }
+  
+  .form-search .search-button {
+    display: inline-block;
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .search-button .search-icon {
+    fill: var(--color-white);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .form-search input[type="search"] {
+    display: inline-block;
+    color: var(--color-white);
+    padding-right: 2rem;
+    height: 3rem;
+    border: 0;
+    outline: none;
+    position: absolute;
+    width: 0;
+    right: 0;
+    background: none;
+    cursor: pointer;
+    z-index: 3;
+    transition: width .4s cubic-bezier(0, 0.795, 0, 1);
+  }
+  
+  .form-search input[type="search"]:focus {
+    position: relative;
+    width: 15rem;
+    z-index: 1;
+    border-bottom: .1rem solid var(--color-grey);
+    padding: 0;
+    cursor: text;
+    margin: 0 1rem;
+  }
 
+  /* menu btn */
+  .header .menu-btn {
+      display: none;
+  }
+
+  .header .menu-btn:checked ~ .navbar-menu {
+      display: block;
+  }
+
+  .header .menu-btn:checked ~ .navbar-menu .nav {
+    max-height: 100%;
+    overflow: inherit;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon::before {
+      transform: rotate(-45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon::after {
+      transform: rotate(45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon::before,
+  .header .menu-btn:checked ~ .menu-icon .navicon::after {
+      top: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+      :root {
+          --header-padding: 2rem 0 0;
+      }
+
+      .header {
+          background: var(--color-black);
+      }
+
+      .header-container {
+          flex-wrap: wrap;
+          padding: 0 1.5rem;
+      }
+
+      .header .menu-icon {
+          display: block;
+      }
+  }
+
+  @media screen and (max-width: 480px) {
+      .header-logo {
+          flex-basis: 70%;
+      }
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 767px) {
+      .header-logo {
+          flex-basis: 79%;
+      }
+  }
